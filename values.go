@@ -190,7 +190,7 @@ func encodePreparedStatementArgument(ci *pgtype.ConnInfo, buf []byte, arg interf
 	if strippedArg, ok := stripNamedType(&refVal); ok {
 		return encodePreparedStatementArgument(ci, buf, strippedArg)
 	}
-	return nil, SerializationError(fmt.Sprintf("Cannot encode %T into oid %v - must implement Encoder or be converted to a string", arg, arg))
+	return nil, SerializationError(fmt.Sprintf("Cannot encode %T - must implement Encoder or be converted to a string", arg))
 }
 
 // chooseParameterFormatCode determines the correct format code for an

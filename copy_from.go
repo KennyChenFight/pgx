@@ -98,11 +98,6 @@ func (ct *copyFrom) run(ctx context.Context) (int64, error) {
 	}
 	quotedColumnNames := cbuf.String()
 
-	//sd, err := ct.conn.Prepare(ctx, "", fmt.Sprintf("select %s from %s", quotedColumnNames, quotedTableName))
-	//if err != nil {
-	//	return 0, err
-	//}
-
 	r, w := io.Pipe()
 	doneChan := make(chan struct{})
 
